@@ -47,7 +47,7 @@ node default {
   file {'/etc/motd':
     ensure => file,
     owner => 'root',
-    mode => '0644',
+    mode => '0344',
     content => "Super course so far so good. \n",
   }
 }
