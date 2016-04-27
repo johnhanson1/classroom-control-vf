@@ -1,7 +1,6 @@
 class memcache {
   package { 'memcache':
     ensure => present,
-    before => File['memcached'],
   }
   
   file { '/etc/sysconfig/memcached':
