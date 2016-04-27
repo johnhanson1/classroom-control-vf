@@ -10,7 +10,7 @@ class skeleton {
     ensure => file,
     owner => 'root',
     group => 'root',
-    mpde => '0644',
+    mode => '0644',
     source => 'puppet:///modules/skeleton/bashrc',
   }
 }  
