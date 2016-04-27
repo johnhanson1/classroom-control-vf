@@ -4,14 +4,16 @@ class memcache {
     before => File['memcached'],
   }
   
-  file { 'memcached':
+  file { '/etc/sysconfig/memcached':
+    ensure => file
     path => 'etc/sysconfig/memcached',
     source => 'puppet:///modules/memcached/memcached',
-    notify => Service{'memcached'],
+    require => Package['memcached'],
   }
   
   service { 'memcached':
     ensure => running,
     enable => true,
+    subscribe => File['etc/sysconfig/memcached'],
   }
 }
