@@ -1,3 +1,3 @@
-user { 'fundamentals':
+users { 'fundamentals':
 ensure => present,
 }
