@@ -42,23 +42,8 @@ node default {
   # This is where you can declare classes for all nodes.
   # Example:
   #   class { 'my_class': }
-#  notify { "Hello, my name is ${::hostname}": }
-  
-#  file {'/etc/motd':
-#    ensure => file,
-#    owner => 'root',
-#    mode => '0344',
-#    content => "Super course so far so good. \n",
-#  }
-
-#  exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
-#    path => '/usr/bin:/usr/local/bin',
-#    creates => '/etc/motd',
-#  }
-#  host { 'testing.puppetlabs.vm':
-#    ensure => present,
-#    ip => '127.0.0.1',
-#  }
-#  include users
-#  include skeleton
+  if $::virtual != 'physical' {
+    $vmname = capitalize($::virtual)
+    notify { "Hello, my name is ${::hostname} - This is a ${vmname} virtual machine.":}
+  }
 }
