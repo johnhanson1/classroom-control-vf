@@ -1,4 +1,2 @@
-node default {
-  $message = 'This message is from node specific heira'
-  notifiy {$message:}
-}
+---
+message:  'This message is from node specific heira'
