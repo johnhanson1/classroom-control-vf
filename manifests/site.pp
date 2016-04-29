@@ -44,9 +44,7 @@ node default {
   #   class { 'my_class': }
   $message = hiera('message')
     notify { $message: }
-   class { 'nginx':
-      root => '/var/www/html',
-    }   
+   include nginx  
 #  if $::virtual != 'physical' {
 #    $vmname = capitalize($::virtual)
 #    notify { "Hello, my name is ${::hostname} - This is a ${vmname} virtual machine.":}
